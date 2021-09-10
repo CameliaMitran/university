@@ -11,37 +11,6 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
 
-    public function getSettings()
-    {
-
-        $result = UserInterface::select('theme', 'header_c', 'sidebar_c')->where('user_id', Auth::user()->id)->first();
-        if ($result) return response()->json(['success' => true, 'result' => $result], 200);
-        else return response()->json(['success' => false, 'result' => 'No data found for this user.'], 404);
-    }
-
-    public function updateSettings(Request $request)
-    {
-
-        $validator = Validator::make($request->all(), [
-            'theme' => 'required|string',
-            'header_c' => 'required|string',
-            'sidebar_c' => 'required|string',
-        ]);
-
-        if ($validator->fails()) return response()->json(['success' => false, 'result' => $validator->errors()->first()], 400);
-
-        $theme = $request->input('theme');
-        $header_c = $request->input('header_c');
-        $sidebar_c = $request->input('sidebar_c');
-
-        $ui = UserInterface::updateOrCreate(
-            ['user_id' => Auth::user()->id],
-            ['theme' => $theme, 'header_c' => $header_c, 'sidebar_c' => $sidebar_c]
-        );
-
-        if ($ui) return response()->json(['success' => true, 'result' => $ui], 200);
-        else return response()->json(['success' => false, 'result' => 'Update or save error.'], 422);
-    }
 
     public function getImage()
     {
@@ -91,4 +60,68 @@ class UserController extends Controller
 
         return response()->json(["success" => false, "result" => "Error saving file."], 400);
     }
+
+    public function delete($user_id){
+
+        $user = User::find($user_id);
+
+        if($user) {
+            $username = $user->username;
+            $user->delete();
+            return response()->json(['success' => true, 'result' => ["name" => $username]], 200);
+        } else return response()->json(['success' => false, 'result' => 'User not found.'], 400);
+    }
+
+    public function update($user_id, Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'role' => 'required|exists:roles,id',
+        ]);
+
+        if ($validator->fails()) return response()->json(['success' => false, 'result' => $validator->errors()->first()], 404);
+
+        $user = User::find($user_id);
+        $user->fill($request->all());
+        if($request->input('password')){
+        $password = $request->input('password');
+        $user->password = app('hash')->make($password);
+        }
+        $user->save();
+
+
+
+        if($user) return response()->json(['success' => true, 'result' => $user], 200);
+        else return response()->json(['success' => false, 'result' => 'Save error.'], 400);
+
+    }
+
+    public function edit($user_id){
+
+        $user = User::find($user_id);
+        if($user) return response()->json(['success' => true, 'result' =>  $user], 200);
+        else return response()->json(['success' => false, 'result' => 'Company not found!'], 400);
+
+    }
+
+    public function store(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:6',
+
+        ]);
+
+        if ($validator->fails()) return response()->json(['success' => false, 'result' => $validator->errors()->first()], 404);
+        $user = new User($request->all());
+        $password = $request->input('password');
+        $user->password = app('hash')->make($password);
+        $user->role = 'student';
+        $user->save();
+
+
+        if($user) return response()->json(['success' => true, 'result' => $user], 200);
+        else return response()->json(['success' => false, 'result' => 'Save error.'], 400);
+    }
+
 }
