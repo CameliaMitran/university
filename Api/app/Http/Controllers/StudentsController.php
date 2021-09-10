@@ -38,7 +38,7 @@ class StudentsController extends Controller
                 $original_filename_arr = explode('.', $original_filename);
                 $file_ext = end($original_filename_arr);
                 $destination_path = './upload/students/' . date('Y-m-d') . '/documents';
-                $image = $original_filename;
+                $image = uniqid() . mt_rand(1, 100000).$file_ext;
                 $file->move($destination_path, $image);
                 $documents[] =  $destination_path.'/'.$image;
             }
@@ -86,8 +86,8 @@ class StudentsController extends Controller
                 $original_filename = $file->getClientOriginalName();
                 $original_filename_arr = explode('.', $original_filename);
                 $file_ext = end($original_filename_arr);
-                $destination_path = './upload/students/' . date('Y-m-d') . '/documents';
-                $image = $original_filename;
+                $destination_path = './upload/students/'. date('Y-m-d') . '/documents';
+                $image = uniqid() . mt_rand(1, 100000).$file_ext;
                 $file->move($destination_path, $image);
                 $documents[] =  $destination_path.'/'.$image;
             }
