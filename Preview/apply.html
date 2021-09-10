@@ -627,7 +627,8 @@
                 type: 'post',
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (data) {
-                    console.log(data);
+                    alert("Alicatie depusa");
+                    window.location.href = "dashboard.html";
                 },
                 error: function (xhr, status, error) {
                    console.log(xhr);
