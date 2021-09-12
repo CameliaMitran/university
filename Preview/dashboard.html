@@ -351,6 +351,7 @@ tr.details td.details-control {
 										<th></th>
 										<th>First Name</th>
 										<th>Last Name</th>
+										<th>Exam Note</th>
 										<th>Application Nr.</th>
 										<th>Action</th>
 									</tr>
@@ -618,6 +619,18 @@ tr.details td.details-control {
 
 									},
 									{
+										"data": null,
+										"render": function (data, type, row, meta) {
+										    if (row.bac){
+												return row.bac  // aici faci conversie in float
+											} else {
+												return '';
+											}
+											
+										}
+
+									},
+									{
 										"data": "_id"
 
 									},
@@ -673,6 +686,8 @@ tr.details td.details-control {
 
 					});
 				} else {
+					$('#full_name').html(data.first_name+ ' ' + data.last_name);
+					$('#role').html(data.role );
 					$('#dashboard_student').removeClass('d-none');
 				}
 

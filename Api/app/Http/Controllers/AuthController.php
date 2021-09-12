@@ -33,10 +33,12 @@ class AuthController extends Controller
             'password' => 'required|confirmed',
         ]);
 
-        
+
 
             $user = new User;
-            $user->username = $request->input('first_name').' '.$request->input('last_name');
+            $user->username = $request->input('first_name').'.'.$request->input('last_name');
+            $user->first_name = $request->input('first_name');
+            $user->last_name = $request->input('last_name');
             $user->email = $request->input('email');
             $plainPassword = $request->input('password');
             $user->password = app('hash')->make($plainPassword);
@@ -48,7 +50,7 @@ class AuthController extends Controller
                 'action' => 'create',
                 'result' => 'success'
             ], 201);
-        
+
     }
 
     /**
