@@ -608,12 +608,15 @@
             file_data.forEach(function (file) {
                 form_data.append(file.name, file);
             })
+         
+
             var fields = {
                 "first_name" : $('#first_name').val(),
                 "last_name" : $('#last_name').val(),
                 "email" : $('#email').val(),
                 "phone" : $('#phone').val(),
                 "bac" : $('#bac').val(),
+               
             };
             // Adding extra parameters to form_data
             for (var attrname in fields) { form_data.append(attrname, fields[attrname]);}
