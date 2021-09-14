@@ -18,12 +18,13 @@
 	<title>FACULTY OF AUTOMATICS, COMPUTER SCIENCE AND ELECTRONICS</title>
 	<style>
 		td.details-control {
-    background: url('images/details_open.png') no-repeat center center;
-    cursor: pointer;
-}
-tr.details td.details-control {
-    background: url('images/details_close.png') no-repeat center center;
-}
+			background: url('images/details_open.png') no-repeat center center;
+			cursor: pointer;
+		}
+
+		tr.details td.details-control {
+			background: url('images/details_close.png') no-repeat center center;
+		}
 	</style>
 </head>
 
@@ -96,14 +97,13 @@ tr.details td.details-control {
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="javascript:;"><i
-										class="bx bx-user"></i><span>Profile</span></a>
+							<li><a class="dropdown-item" id="profile"><i class="bx bx-user"></i><span>Profile</span></a>
 							</li>
 
 							<li>
 								<div class="dropdown-divider mb-0"></div>
 							</li>
-							<li><a class="dropdown-item" href="javascript:;"><i
+							<li><a class="dropdown-item" id="logout"><i
 										class='bx bx-log-out-circle'></i><span>Logout</span></a>
 							</li>
 						</ul>
@@ -365,8 +365,327 @@ tr.details td.details-control {
 					</div>
 				</div>
 			</div>
+
+			<div class="page-content d-none" id="dashboard_apply">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card radius-10">
+							<div class="card-body">
+
+								<div class="d-flex align-items-center">
+									<div>
+										<h5 class="mb-0">Select all desired options</h5>
+									</div>
+									<div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
+									</div>
+								</div>
+								<!-- First OPTION -->
+								<div class="form-group page-content">
+									<div class="d-flex align-items-center">
+										<div>
+											<h5 class="mb-0">First option:</h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Computer science</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Computer science (English-taught programme)</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Applied electronics</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Automatics and applied computer science</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Multimedia systems engineering</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Mechatronics</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Robotics</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<!-- SECOND OPTION -->
+								<div class="form-group page-content">
+									<div class="d-flex align-items-center">
+										<div>
+											<h5 class="mb-0">Second option:</h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Computer science</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Computer science (English-taught programme)</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Applied electronics</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Automatics and applied computer science</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Multimedia systems engineering</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Mechatronics</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Robotics</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<!-- Third OPTION -->
+								<div class="form-group page-content">
+									<div class="d-flex align-items-center">
+										<div>
+											<h5 class="mb-0">Third option:</h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Computer science</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Computer science (English-taught programme)</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Applied electronics</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Automatics and applied computer science</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Multimedia systems engineering</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Mechatronics</span>
+											</label>
+										</div>
+										<div class="checkbox c-checkbox col-md-3">
+											<label>
+												<input class="check_campaign" type="checkbox" value="Y">
+												<span class="mb-0">Robotics</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<!-- Personal details -->
+								<div class="form-group page-content">
+									<div class="d-flex align-items-center">
+										<div>
+											<h5 class="mb-0">Personal details:</h5>
+										</div>
+									</div>
+									<div class="row row-cols-1 row-cols-md-2">
+										<div class="form-floating my-2 col-md-6">
+											<input type="email" class="form-control" id="first_name" required>
+											<label for="floatingFirstName">First name</label>
+										</div>
+										<br>
+										<div class="form-floating my-2 col-md-6">
+											<input type="text" class="form-control" id="last_name" required>
+											<label for="floatingLastName">Last name</label>
+										</div>
+										<br>
+										<div class="form-floating my-2 col-md-6">
+											<input type="email" class="form-control" id="email" required>
+											<label for="floatingInput">Email address</label>
+										</div>
+										<br>
+										<div class="form-floating my-2 col-md-6">
+											<input type="text" class="form-control" id="phone" required>
+											<label for="floatingPhone">Phone number</label>
+										</div>
+										<br>
+										<div class="form-floating my-2 col-md-6">
+											<input type="text" class="form-control" id="bac" required>
+											<label for="floatingPhone">Final exam average (BAC)</label>
+										</div>
+									</div>
+								</div>
+								<!-- Upload documents -->
+								<div class="form-group page-content">
+									<label class="form-label">Upload identity card copy:</label>
+									<div class="form-group" id="uploadIdentityCard">
+										<div class="input-group">
+											<input type="file" class="form-control file-name" id="id_card"
+												placeholder="PDF File" required="">
+
+										</div>
+									</div>
+									<br>
+
+									<label class="form-label">Upload birth certificate copy:</label>
+									<div class="form-group" id="uploadBirthCert">
+										<div class="input-group">
+											<input type="file" class="form-control file-name" id="birth_cert"
+												placeholder="PDF File" required="">
+
+										</div>
+									</div>
+									<br>
+
+									<label class="form-label">Upload final exam copy:</label>
+									<div class="form-group" id="uploadExam">
+										<div class="input-group">
+											<input type="file" class="form-control file-name" id="exam_copy"
+												placeholder="PDF File" required="">
+
+										</div>
+									</div>
+									<br>
+								</div>
+								<!-- APPLY button -->
+								<div class="form-group">
+									<input type="button w-50 btn btn-lg" id="btnUpload" value="Apply"
+										class="btn btn-primary">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="page-content d-none" id="dashboard_profile">
+				<div class="card radius-10 w-100">
+					<div class="card-header">
+						<h3 class="card-title">Profile Settings</h3>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-5 ms-5 mt-5 text-center align-items-center">
+
+
+								<div class="mb-4">
+									<img src="images/avatars/3.png" class="img-fluid img-thumbnail rounded-circle" title=""
+										style="width: 210px; height: 210px;"><br>
+
+									<p class="text-center" id="profile_username"></p>
+									<p class="text-center" id="profile_email"></p>
+								</div>
+
+							</div>
+
+							<div class="col ms-5 mt-5 me-5">
+								<div class="p-2 py-3">
+									<div class="d-flex align-items-center mb-3">
+										<h4>Profile Details</h4>
+									</div>
+
+									<div class="row ">
+										<div class="col-lg-6">
+											<label class="form-label">First Name</label>
+											<input type="text" class="form-control" id="profile_first_name"
+												value="">
+										</div>
+										<div class="col-lg-6 ">
+											<label class="form-label">Last Name</label>
+											<input type="text" class="form-control" id="profile_last_name"
+												id="field.profile.last_name" value="">
+										</div>
+									</div>
+
+									
+
+									
+
+									<div class="row">
+										<div class="col">
+											<label for="exampleInputPassword1" class="form-label">New Password</label>
+											<input type="password" class="form-control" id="profile_new_password">
+										</div>
+
+										<div class="col">
+											<label for="exampleInputPassword1" class="form-label">Confrim new
+												Password</label>
+											<input type="password" class="form-control"
+												id="profile_confirm_new_password">
+										</div><br><br>
+									</div><br><br>
+
+
+
+								</div>
+
+								<div class="text-center">
+									<button class="btn btn-primary profile-button" type="button"
+										id= "saveprofile">Save
+										Profile</button>
+								</div><br><br>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
 	</div>
 	<div class="overlay toggle-icon"></div>
 	<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
@@ -485,9 +804,10 @@ tr.details td.details-control {
 	<script src="js/dataTables.fixedHeader.min.js"></script>
 	<script src="js/dataTables.responsive.min.js"></script>
 	<script src="js/app.js"></script>
-	
+
 	<script>
 		var token = localStorage.getItem("token");
+
 		if (!token) {
 			window.location.href = "index.html";
 		}
@@ -503,8 +823,10 @@ tr.details td.details-control {
 				console.log(data);
 				if (data.role == 'admin') {
 					$('#full_name').html('Administrator');
-					$('#role').html(data.role );
+					$('#role').html(data.role);
+
 					$('#dashboard_admin').removeClass('d-none');
+					$('#apply').addClass('d-none');
 					$.ajax({
 						url: "http://localhost:8282/api/users", // Upload Script
 
@@ -538,12 +860,12 @@ tr.details td.details-control {
 										"data": "email"
 
 									},
-								
+
 
 									{
 										"data": null,
 										"render": function (data, type, row, meta) {
-										
+
 											return `<div class="d-flex order-actions"><a onclick="PredictiveSDK.callFlowAction('activateuser', ` + row._id + `)" class=""><i class="bx bx-user-check"></i></a>
                             <a onclick="PredictiveSDK.callFlowAction('deleteuser', `+ row._id + `)" class="ms-4"><i class="bx bx-trash"></i></a></div>`;
 										}
@@ -621,12 +943,12 @@ tr.details td.details-control {
 									{
 										"data": null,
 										"render": function (data, type, row, meta) {
-										    if (row.bac){
+											if (row.bac) {
 												return row.bac  // aici faci conversie in float
 											} else {
 												return '';
 											}
-											
+
 										}
 
 									},
@@ -634,12 +956,12 @@ tr.details td.details-control {
 										"data": "_id"
 
 									},
-								
+
 
 									{
 										"data": null,
 										"render": function (data, type, row, meta) {
-										
+
 											return `<div class="d-flex order-actions"><a onclick="PredictiveSDK.callFlowAction('activateuser', ` + row._id + `)" class=""><i class="bx bx-user-check"></i></a>
                             <a onclick="PredictiveSDK.callFlowAction('deleteuser', `+ row._id + `)" class="ms-4"><i class="bx bx-trash"></i></a></div>`;
 										}
@@ -686,8 +1008,8 @@ tr.details td.details-control {
 
 					});
 				} else {
-					$('#full_name').html(data.first_name+ ' ' + data.last_name);
-					$('#role').html(data.role );
+					$('#full_name').html(data.first_name + ' ' + data.last_name);
+					$('#role').html(data.role);
 					$('#dashboard_student').removeClass('d-none');
 				}
 
@@ -698,8 +1020,133 @@ tr.details td.details-control {
 
 		});
 
+
+
+		$('#dashboard').on('click', function () {
+			var role = $('#role').html();
+			if (role == 'admin') {
+				if ($('#dashboard_admin').hasClass('d-none')) {
+					$('#dashboard_admin').removeClass('d-none');
+				}
+				if (!$('#dashboard_student').hasClass('d-none')) {
+					$('#dashboard_student').addClass('d-none');
+				}
+			} else {
+				if (!$('#dashboard_admin').hasClass('d-none')) {
+					$('#dashboard_admin').addClass('d-none');
+				}
+				if ($('#dashboard_student').hasClass('d-none')) {
+					$('#dashboard_student').removeClass('d-none');
+				}
+			}
+
+			if (!$('#dashboard_apply').hasClass('d-none')) {
+				$('#dashboard_apply').addClass('d-none');
+			}
+		});
+
 		$('#apply').on('click', function () {
-			window.location.href = "apply.html"
+
+			if (!$('#dashboard_admin').hasClass('d-none')) {
+				$('#dashboard_admin').addClass('d-none');
+			}
+			if (!$('#dashboard_profile').hasClass('d-none')) {
+				$('#dashboard_profile').addClass('d-none');
+			}
+			if (!$('#dashboard_student').hasClass('d-none')) {
+				$('#dashboard_student').addClass('d-none');
+			}
+			if ($('#dashboard_apply').hasClass('d-none')) {
+				$('#dashboard_apply').removeClass('d-none');
+			}
+		});
+
+		$('#profile').on('click', function () {
+
+			$.ajax({
+			url: "http://localhost:8282/api/me", // Upload Script
+
+			contentType: false,
+			processData: false,
+			type: 'get',
+			headers: { 'Authorization': 'Bearer ' + token },
+			success: function (data) {
+				console.log(data);
+				$('#profile_username').html(data.first_name + ' ' + data.last_name);
+				$('#profile_email').html(data.email );
+				$('#profile_first_name').val(data.first_name);
+				$('#profile_last_name').val(data.last_name);
+			 },
+			error: function (xhr, status, error) {
+				console.log(xhr);
+			}
+
+		});
+
+			if (!$('#dashboard_admin').hasClass('d-none')) {
+				$('#dashboard_admin').addClass('d-none');
+			}
+			if (!$('#dashboard_apply').hasClass('d-none')) {
+				$('#dashboard_apply').addClass('d-none');
+			}
+			if (!$('#dashboard_student').hasClass('d-none')) {
+				$('#dashboard_student').addClass('d-none');
+			}
+			if ($('#dashboard_profile').hasClass('d-none')) {
+				$('#dashboard_profile').removeClass('d-none');
+			}
+
+
+		});
+
+		$('#logout').on('click', function () {
+			localStorage.removeItem("token");
+
+
+			window.location.href = "index.html";
+
+		})
+
+		$('#btnUpload').on('click', function () {
+			var file_data = [document.getElementById("id_card").files[0],
+			document.getElementById("birth_cert").files[0],
+			document.getElementById("exam_copy").files[0]];
+
+			var form_data = new FormData(); // Creating object of FormData class
+			// Appending parameter named file with properties of file_field to form_data
+			file_data.forEach(function (file) {
+				form_data.append(file.name, file);
+			})
+
+
+			var fields = {
+				"first_name": $('#first_name').val(),
+				"last_name": $('#last_name').val(),
+				"email": $('#email').val(),
+				"phone": $('#phone').val(),
+				"bac": $('#bac').val(),
+
+			};
+			// Adding extra parameters to form_data
+			for (var attrname in fields) { form_data.append(attrname, fields[attrname]); }
+
+			$.ajax({
+				url: "http://localhost:8282/api/students", // Upload Script
+
+				contentType: false,
+				processData: false,
+				data: form_data, // Setting the data attribute of ajax with file_data
+				type: 'post',
+				headers: { 'Authorization': 'Bearer ' + token },
+				success: function (data) {
+					alert("Alicatie depusa");
+					window.location.href = "dashboard.html";
+				},
+				error: function (xhr, status, error) {
+					console.log(xhr);
+				}
+
+			});
 		})
 	</script>
 
