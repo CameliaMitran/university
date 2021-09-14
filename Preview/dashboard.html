@@ -308,8 +308,8 @@
 								<h5 class="mb-0">Users</h5>
 							</div>
 							<div class="d-flex mr-4 ms-auto">
-								<a 
-									class="btn btn-success pull-right remote_modal waves-effect waves-themed"  id="createuser_modal">
+								<a class="btn btn-success pull-right remote_modal waves-effect waves-themed"
+									id="createuser_modal">
 									<i class="fal fa-plus bx bx-user mr-1"></i>Create User</a>
 							</div>
 						</div>
@@ -624,8 +624,8 @@
 
 
 								<div class="mb-4">
-									<img src="images/avatars/3.png" class="img-fluid img-thumbnail rounded-circle" title=""
-										style="width: 210px; height: 210px;"><br>
+									<img src="images/avatars/3.png" class="img-fluid img-thumbnail rounded-circle"
+										title="" style="width: 210px; height: 210px;"><br>
 
 									<p class="text-center" id="profile_username"></p>
 									<p class="text-center" id="profile_email"></p>
@@ -642,8 +642,7 @@
 									<div class="row ">
 										<div class="col-lg-6">
 											<label class="form-label">First Name</label>
-											<input type="text" class="form-control" id="profile_first_name"
-												value="">
+											<input type="text" class="form-control" id="profile_first_name" value="">
 										</div>
 										<div class="col-lg-6 ">
 											<label class="form-label">Last Name</label>
@@ -652,9 +651,9 @@
 										</div>
 									</div>
 
-									
 
-									
+
+
 
 									<div class="row">
 										<div class="col">
@@ -675,8 +674,7 @@
 								</div>
 
 								<div class="text-center">
-									<button class="btn btn-primary profile-button" type="button"
-										id= "saveprofile">Save
+									<button class="btn btn-primary profile-button" type="button" id="saveprofile">Save
 										Profile</button>
 								</div><br><br>
 
@@ -689,47 +687,49 @@
 
 		</div>
 
-		<div class="modal fade" id="createuser"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+		<div class="modal fade" id="createuser" data-bs-keyboard="false" tabindex="-1" aria-labelledby="userModalLabel"
+			aria-hidden="true">
 			<div class="modal-dialog">
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <h5 class="modal-title">Create User</h5>
-				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="bx bx-backspace"></i></button>
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Create User</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i
+								class="bx bx-backspace"></i></button>
+					</div>
+					<div class="modal-body">
+						<input type="hidden" id="field.telephony_users.createuser">
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control" placeholder="" id="create_email">
+							<label for="floatingInput">Email address</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control" placeholder="" id="create_setpassword">
+							<label for="floatingInput">Set Password</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control" placeholder="" id="create_confirmsetpassword">
+							<label for="floatingInput">Confirm Set Password</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="text" aria-label="First Name" class="form-control" id="create_firstname">
+							<label for="floatingInput">First Name</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="text" aria-label="Last Name" class="form-control" id="create_lastname">
+							<label for="floatingInput">Last Name</label>
+						</div>
+
+
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" id="saveusermodal">Save</button>
+						</div>
+					</div>
 				</div>
-				<div class="modal-body">
-				<input type="hidden" id="field.telephony_users.createuser"> 
-				<div class="form-floating mb-3">
-					<input type="email" class="form-control" placeholder="" id="field.telephony_users.create_email">
-					 <label for="floatingInput">Email address</label>
-				</div>
-			
-				<div class="form-floating mb-3">
-				 <input type="password" class="form-control" placeholder="" id="field.telephony_users.create_setpassword">
-				 <label for="floatingInput">Set Password</label>
-				</div>
-				<div class="form-floating mb-3">
-				 <input type="password" class="form-control" placeholder="" id="field.telephony_users.create_confirmsetpassword">
-				 <label for="floatingInput">Confirm Set Password</label>
-				</div>
-				<div class="form-floating mb-3">
-					<input type="text" aria-label="First Name" class="form-control"  id="field.telephony_users.create_firstname">
-					<label for="floatingInput">First Name</label>
-				</div>    
-				<div class="form-floating mb-3">					
-					<input type="text" aria-label="Last Name" class="form-control"  id="field.telephony_users.create_lastname">
-					<label for="floatingInput">Last Name</label>
-				</div>    
-			
-				
-				
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				  <button type="button" class="btn btn-primary" onclick="saveusermodal()">Save</button>
-				</div>
-			  </div>
 			</div>
-			</div>
-			</div>
+		</div>
 	</div>
 	<div class="overlay toggle-icon"></div>
 	<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
@@ -1110,24 +1110,24 @@
 		$('#profile').on('click', function () {
 
 			$.ajax({
-			url: "http://localhost:8282/api/me", // Upload Script
+				url: "http://localhost:8282/api/me", // Upload Script
 
-			contentType: false,
-			processData: false,
-			type: 'get',
-			headers: { 'Authorization': 'Bearer ' + token },
-			success: function (data) {
-				console.log(data);
-				$('#profile_username').html(data.first_name + ' ' + data.last_name);
-				$('#profile_email').html(data.email );
-				$('#profile_first_name').val(data.first_name);
-				$('#profile_last_name').val(data.last_name);
-			 },
-			error: function (xhr, status, error) {
-				console.log(xhr);
-			}
+				contentType: false,
+				processData: false,
+				type: 'get',
+				headers: { 'Authorization': 'Bearer ' + token },
+				success: function (data) {
+					console.log(data);
+					$('#profile_username').html(data.first_name + ' ' + data.last_name);
+					$('#profile_email').html(data.email);
+					$('#profile_first_name').val(data.first_name);
+					$('#profile_last_name').val(data.last_name);
+				},
+				error: function (xhr, status, error) {
+					console.log(xhr);
+				}
 
-		});
+			});
 
 			if (!$('#dashboard_admin').hasClass('d-none')) {
 				$('#dashboard_admin').addClass('d-none');
@@ -1194,13 +1194,72 @@
 
 			});
 		})
-	
-	function userdetails(user){
-		console.log(user);
-	}
-	function applicationdetails(app){
-		console.log(app);
-	}
+
+
+
+		$('#saveusermodal').on('click', function () {
+			var firstname = $('#create_firstname').val();
+			var lastname = $('#create_lastname').val();
+			var email = $('#create_email').val();
+			var password = $('#create_setpassword').val();
+			var retypePassword = $('#create_confirmsetpassword').val();
+			if (password != retypePassword) {
+				alert("pasword and confirmation password are not the same!");
+			}
+			if (!firstname || !lastname || !email || !password || !retypePassword) {
+				alert("please insert valid info");
+			}
+			else {
+				$.post(
+					"http://localhost:8282/api/register", {
+					first_name: firstname,
+					last_name: lastname,
+					email: email,
+					password: password,
+					password_confirmation: retypePassword
+				}, function (result, status) {
+					if (status == 'success') {
+						$.post(
+							"http://localhost:8282/api/login", {
+							email: email,
+							password: password
+						}, function (result, status) {
+							if (status == 'success') {
+								$("#createuser").modal("hide");
+								$.ajax({
+									url: "http://localhost:8282/api/users", // Upload Script
+
+									contentType: false,
+									processData: false,
+
+									type: 'get',
+									headers: { 'Authorization': 'Bearer ' + token },
+									success: function (data) {
+										var table = $('#users').DataTable();
+										table.clear();
+										table.rows.add(data);
+										table.draw();
+										
+
+									},
+									error: function (xhr, status, error) {
+										console.log(xhr);
+									}
+
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+
+		function userdetails(user) {
+			console.log(user);
+		}
+		function applicationdetails(app) {
+			console.log(app);
+		}
 	</script>
 
 </body>
